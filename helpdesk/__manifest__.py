@@ -8,7 +8,9 @@
     'license': 'AGPL-3',
     'author': 'Odoo Community Association (OCA), Domatix',
     'website': 'https://github.com/OCA/helpdesk',
-    'depends': [],
+    'depends': [
+        'mail',
+    ],
     'data': [
         'data/helpdesk_data.xml',
         'views/helpdesk_team_views.xml'

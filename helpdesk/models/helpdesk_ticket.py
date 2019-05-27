@@ -7,11 +7,20 @@ class HelpdeskTicket(models.Model):
     _order = 'number desc'
     _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin']
 
+    def _get_default_stage_id(self):
+        return self.env['helpdesk.ticket.stage'].search([], limit=1).id
+
     number = fields.Char(string='Ticket number', readonly=True)
     name = fields.Char(string='Title', required=True)
     description = fields.Text(required=True)
-    user_id = fields.Many2one('res.users', string='Assigned user', default=lambda self: self.env.user)
-    state = fields.Many2one('helpdesk.ticket.state', string='State') #TODO: default
+    user_id = fields.Many2one(
+        'res.users',
+        string='Assigned user',
+        default=lambda self: self.env.user)
+    stage_id = fields.Many2one(
+        'helpdesk.ticket.stage',
+        string='State',
+        default=_get_default_stage_id)
     partner_id = fields.Many2one('res.partner')
     partner_name = fields.Char()
     partner_email = fields.Char()

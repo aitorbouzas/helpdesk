@@ -10,7 +10,7 @@
     'website': 'https://github.com/OCA/helpdesk',
     'depends': [],
     'data': [
-        'views/heldesk_team_views.xml'
+        'views/helpdesk_team_views.xml'
     ],
     'demo': [],
 }

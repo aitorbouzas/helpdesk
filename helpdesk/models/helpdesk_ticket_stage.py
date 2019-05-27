@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class HelpdeskTicketStage(models.Model):
@@ -17,8 +17,11 @@ class HelpdeskTicketStage(models.Model):
         'mail.template',
         string='Email Template',
         domain=[('model', '=', 'helpdesk.ticket')],
-        help="If set an email will be sent to the customer when the ticket"
-        "reaches this step.")
-    fold = fields.Boolean(string='Folded in Kanban',
-        help="This stage is folded in the kanban view when there are no records"
-        "in that stage to display.")
+        help="If set an email will be sent to the "
+             "customer when the ticket"
+             "reaches this step.")
+    fold = fields.Boolean(
+        string='Folded in Kanban',
+        help="This stage is folded in the kanban view "
+             "when there are no records in that stage "
+             "to display.")

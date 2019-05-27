@@ -11,6 +11,7 @@
     'depends': [],
     'data': [
         'data/helpdesk_data.xml',
+        'views/heldesk_team_views.xml'
     ],
     'demo': [],
 }

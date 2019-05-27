@@ -36,8 +36,10 @@ class HelpdeskTicket(models.Model):
         default=lambda self: self.env['res.company']._company_default_get(
             'helpdesk.ticket')
     )
-    channel_id = fields.Many2one('helpdesk.ticket.channel', string='Channel')
-    category_id = fields.Many2one('helpdesk.ticket.category', string='Category')
+    channel_id = fields.Many2one('helpdesk.ticket.channel',
+                                 string='Channel')
+    category_id = fields.Many2one('helpdesk.ticket.category',
+                                  string='Category')
     team_id = fields.Many2one('helpdesk.ticket.team')
     priority_id = fields.Selection(selection=[
         ('0', _('Low')),
@@ -45,5 +47,7 @@ class HelpdeskTicket(models.Model):
         ('2', _('High')),
         ('3', _('Very High')),
     ], string='Priority', default='medium')
-    attachment_ids = fields.One2many('ir.attachment', 'res_id', domain=[('res_model', '=', 'website.support.ticket')],
-                                     string="Media Attachments")
+    attachment_ids = fields.One2many(
+        'ir.attachment', 'res_id',
+        domain=[('res_model', '=', 'website.support.ticket')],
+        string="Media Attachments")

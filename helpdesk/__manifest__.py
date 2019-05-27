@@ -6,7 +6,7 @@
         Helpdesk""",
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
-    'author': 'Odoo Community Association (OCA), ACSONE SA/NV, Domatix',
+    'author': 'Odoo Community Association (OCA), Domatix',
     'website': 'https://github.com/OCA/helpdesk',
     'depends': [],
     'data': [

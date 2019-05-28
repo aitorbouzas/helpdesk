@@ -24,7 +24,10 @@ class HelpdeskTicket(models.Model):
     partner_name = fields.Char()
     partner_email = fields.Char()
 
-    last_stage_update = fields.Datetime(string='Last Stage Update')
+    last_stage_update = fields.Datetime(
+            string='Last Stage Update',
+            default=fields.Datetime.now(),
+        )
     assigned_date = fields.Datetime(string='Assinged Date')
     closed_date = fields.Datetime(string='Closed Date')
 

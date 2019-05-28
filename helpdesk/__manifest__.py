@@ -11,10 +11,12 @@
     'depends': [
         'mail',
         'portal',
+        'contacts',
     ],
     'data': [
         'data/helpdesk_data.xml',
         'views/helpdesk_team_views.xml',
+        'views/partner_views.xml',
         'security/helpdesk_security.xml',
         'security/ir.model.access.csv',
     ],

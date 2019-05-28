@@ -23,6 +23,7 @@
         'security/ir.model.access.csv',
         'views/helpdesk_team_views.xml',
         'views/helpdesk_ticket_menu.xml',
+        'views/helpdesk_ticket_templates.xml',
     ],
     'demo': [
         'demo/helpdesk_demo.xml',

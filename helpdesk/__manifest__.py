@@ -6,6 +6,7 @@
         Helpdesk""",
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
+    'category': 'After-Sales',
     'author':   'AdaptiveCity, '
                 'C2i Change 2 Improve, '
                 'Domatix, '
@@ -24,6 +25,7 @@
         'views/helpdesk_team_views.xml',
         'views/helpdesk_ticket_menu.xml',
         'views/helpdesk_ticket_templates.xml',
+        'views/helpdesk_ticket_view.xml',
     ],
     'demo': [
         'demo/helpdesk_demo.xml',

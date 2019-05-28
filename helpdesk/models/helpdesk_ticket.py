@@ -46,7 +46,7 @@ class HelpdeskTicket(models.Model):
         ('1', _('Medium')),
         ('2', _('High')),
         ('3', _('Very High')),
-    ], string='Priority', default='medium')
+    ], string='Priority', default='1')
     attachment_ids = fields.One2many(
         'ir.attachment', 'res_id',
         domain=[('res_model', '=', 'website.support.ticket')],

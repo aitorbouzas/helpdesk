@@ -6,6 +6,7 @@
         Helpdesk""",
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
+    'category': 'After-Sales',
     'author':   'AdaptiveCity, '
                 'C2i Change 2 Improve, '
                 'Domatix, '

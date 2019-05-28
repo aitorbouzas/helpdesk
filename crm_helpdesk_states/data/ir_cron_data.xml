@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Kiko Peiro <francisco.peiro@factorlibre.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<openerp>
+  <data noupdate="1">
+    <record forcecreate="True" id="ir_cron_crm_helpdesk_state2closed" model="ir.cron">
+        <field name="name">CRM-Helpdesk transition from done to closed</field>
+        <field eval="False" name="active"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field eval="False" name="doall"/>
+        <field eval="'crm.helpdesk'" name="model"/>
+        <field eval="'_check_days_done'" name="function"/>
+        <field eval="'(10,)'" name="args"/>
+    </record>
+  </data>
+</openerp>

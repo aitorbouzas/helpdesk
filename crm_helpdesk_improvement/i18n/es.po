@@ -1,0 +1,284 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * crm_helpdesk_improvement
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-02 15:09+0000\n"
+"PO-Revision-Date: 2017-08-02 15:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crm_helpdesk_improvement
+#: field:res.partner,crm_helpdesk_count:0
+msgid "# of Cases"
+msgstr "# of Casos"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.actions.act_window,help:crm_helpdesk_improvement.crm_case_helpdesk_blacklist
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a blacklist item. \n"
+"              </p><p>\n"
+"                Helpdesk allow to have an email list in order to disable sending automatic messages.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Pulsa el botón para crear un elemento en la BlackList. \n"
+"              </p><p>\n"
+"                El sistema de helpdesk permite tener una lista de direcciones de correo electronico con el fin de que se deshabilite para los tickets creados por ellos el envío de mails automáticos.\n"
+"              </p>\n"
+"            "
+
+#. module: crm_helpdesk_improvement
+#: model:ir.actions.act_window,help:crm_helpdesk_improvement.crm_case_helpdesk_whitelist
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a whitelist item. \n"
+"              </p><p>\n"
+"                Helpdesk allow to skip for this list the blacklist limitation.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Pulsa el botón para crear un elemento en la WhiteList. \n"
+"              </p><p>\n"
+"                El sistema de helpdesk permite establecer excepciones para evitar que el sistema cree elementos automaticamente en la BlackList.\n"
+"              </p>\n"
+"            "
+
+#. module: crm_helpdesk_improvement
+#: view:sale.config.settings:crm_helpdesk_improvement.view_helpdesk_config_settings
+msgid "BlackList setting"
+msgstr "Configuracion de BlackList (Helpdesk)"
+
+#. module: crm_helpdesk_improvement
+#: view:res.partner:crm_helpdesk_improvement.view_crm_helpdesk_partner_info_form
+msgid "Cases"
+msgstr "Casos"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk.blacklist.line,comment:0
+#: field:crm.helpdesk.whitelist.line,comment:0
+msgid "Comment"
+msgstr "Comentario"
+
+#. module: crm_helpdesk_improvement
+#: view:sale.config.settings:crm_helpdesk_improvement.view_helpdesk_config_settings
+msgid "Create BlackList item when"
+msgstr "Crear elemento en la BlackList cuando"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk.blacklist.line,create_uid:0
+#: field:crm.helpdesk.whitelist.line,create_uid:0
+#: field:mail.thread,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk.blacklist.line,create_date:0
+#: field:crm.helpdesk.whitelist.line,create_date:0
+#: field:mail.thread,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk.blacklist.line,display_name:0
+#: field:crm.helpdesk.whitelist.line,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk.blacklist.line,email:0
+#: field:crm.helpdesk.whitelist.line,email:0
+msgid "Email"
+msgstr "Email"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.model,name:crm_helpdesk_improvement.model_mail_thread
+msgid "Email Thread"
+msgstr "Hilo de mensajes"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk,email_origin:0
+msgid "Email origin"
+msgstr "Email origen"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.model,name:crm_helpdesk_improvement.model_crm_helpdesk_blacklist_line
+msgid "Emails detected as machines"
+msgstr "Mails detectados como maquinas"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.model,name:crm_helpdesk_improvement.model_crm_helpdesk_whitelist_line
+msgid "Emails excluded from blacklist"
+msgstr "Mails excluidos para la creación automatica de elmentos para la BlackList"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.model,name:crm_helpdesk_improvement.model_crm_helpdesk
+#: view:sale.config.settings:crm_helpdesk_improvement.view_helpdesk_config_settings
+msgid "Helpdesk"
+msgstr "Mesa de ayuda (Helpdesk)"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.actions.act_window,name:crm_helpdesk_improvement.crm_case_helpdesk_blacklist
+#: model:ir.ui.menu,name:crm_helpdesk_improvement.menu_help_blacklist
+msgid "Helpdesk BlackList"
+msgstr "Helpdesk BlackList"
+
+#. module: crm_helpdesk_improvement
+#: view:crm.helpdesk.blacklist.line:crm_helpdesk_improvement.crm_helpdesk_form_view_blacklist
+msgid "Helpdesk Blacklist Form"
+msgstr "Helpdesk Blacklist Form"
+
+#. module: crm_helpdesk_improvement
+#: view:crm.helpdesk.blacklist.line:crm_helpdesk_improvement.crm_helpdesk_tree_view_blacklist
+msgid "Helpdesk Blacklist Tree"
+msgstr "Helpdesk Blacklist Tree"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.actions.act_window,name:crm_helpdesk_improvement.crm_case_helpdesk_act333
+msgid "Helpdesk Requests"
+msgstr "Solicitudes Helpdesk"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.actions.act_window,name:crm_helpdesk_improvement.crm_case_helpdesk_whitelist
+#: model:ir.ui.menu,name:crm_helpdesk_improvement.menu_help_whitelist
+msgid "Helpdesk WhiteList"
+msgstr "Helpdesk WhiteList"
+
+#. module: crm_helpdesk_improvement
+#: view:crm.helpdesk.whitelist.line:crm_helpdesk_improvement.crm_helpdesk_form_view_whitelist
+msgid "Helpdesk Whitelist Form"
+msgstr "Helpdesk Whitelist Form"
+
+#. module: crm_helpdesk_improvement
+#: view:crm.helpdesk.whitelist.line:crm_helpdesk_improvement.crm_helpdesk_tree_view_whitelist
+msgid "Helpdesk Whitelist Tree"
+msgstr "Helpdesk Whitelist Tree"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk.blacklist.line,id:0
+#: field:crm.helpdesk.whitelist.line,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk.blacklist.line,__last_update:0
+#: field:crm.helpdesk.whitelist.line,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk.blacklist.line,write_uid:0
+#: field:crm.helpdesk.whitelist.line,write_uid:0
+#: field:mail.thread,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk.blacklist.line,write_date:0
+#: field:crm.helpdesk.whitelist.line,write_date:0
+#: field:mail.thread,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.model,name:crm_helpdesk_improvement.model_mail_message
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk,name_from:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk,not_automatic_messages:0
+msgid "Not Automatic messages"
+msgstr "Not Automatic messages"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.model,name:crm_helpdesk_improvement.model_mail_notification
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#. module: crm_helpdesk_improvement
+#: field:sale.config.settings,crm_helpdesk_improvement_number_of_minutes:0
+msgid "Number of minutes."
+msgstr "Numero de minutos."
+
+#. module: crm_helpdesk_improvement
+#: field:sale.config.settings,crm_helpdesk_improvement_number_of_tickets:0
+msgid "Number of tickets."
+msgstr "Numero de tickets creados."
+
+#. module: crm_helpdesk_improvement
+#: model:ir.model,name:crm_helpdesk_improvement.model_mail_mail
+msgid "Outgoing Mails"
+msgstr "Correos salientes"
+
+#. module: crm_helpdesk_improvement
+#: model:ir.model,name:crm_helpdesk_improvement.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: crm_helpdesk_improvement
+#: view:crm.helpdesk:crm_helpdesk_improvement.view_crm_case_helpdesk_add_filter
+msgid "Query"
+msgstr "Consulta"
+
+#. module: crm_helpdesk_improvement
+#: help:crm.helpdesk.blacklist.line,comment:0
+#: help:crm.helpdesk.whitelist.line,comment:0
+msgid "Reason wich this email is in the list"
+msgstr "Razón por la que el mail se ha creado en la lista"
+
+#. module: crm_helpdesk_improvement
+#: field:crm.helpdesk,code:0
+msgid "Reference"
+msgstr "Código"
+
+#. module: crm_helpdesk_improvement
+#: code:addons/crm_helpdesk_improvement/models/crm_helpdesk.py:42
+#: sql_constraint:crm.helpdesk:0
+#, python-format
+msgid "The code must be unique!"
+msgstr "El código debe ser unico!"
+
+#. module: crm_helpdesk_improvement
+#: code:addons/crm_helpdesk_improvement/models/crm_helpdesk.py:65
+#: code:addons/crm_helpdesk_improvement/models/crm_helpdesk.py:80
+#: sql_constraint:crm.helpdesk.blacklist.line:0
+#: sql_constraint:crm.helpdesk.whitelist.line:0
+#, python-format
+msgid "The email must be unique!"
+msgstr "El email debe ser unico!"
+
+#. module: crm_helpdesk_improvement
+#: model:res.request.link,name:crm_helpdesk_improvement.req_link_crm_helpdesk
+msgid "Ticket Helpdesk"
+msgstr "Ticket Helpdesk"
+
+#. module: crm_helpdesk_improvement
+#: help:crm.helpdesk.blacklist.line,email:0
+msgid "email to block"
+msgstr "email a bloquear"
+
+#. module: crm_helpdesk_improvement
+#: help:crm.helpdesk.whitelist.line,email:0
+msgid "email to exclude from blacklist"
+msgstr "email a excluir de la BlackList"
+
+#. module: crm_helpdesk_improvement
+#: view:sale.config.settings:crm_helpdesk_improvement.view_helpdesk_config_settings
+msgid "minutes."
+msgstr "minutos."
+
+#. module: crm_helpdesk_improvement
+#: view:sale.config.settings:crm_helpdesk_improvement.view_helpdesk_config_settings
+msgid "tickets are created over a period of"
+msgstr "tickets sean creados en un periodo de tiempo de"

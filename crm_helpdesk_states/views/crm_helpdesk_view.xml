@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="crm_helpdesk_state_tree_view">
+            <field name="name">crm.helpdesk.stae.tree</field>
+            <field name="model">crm.helpdesk</field>
+            <field name="inherit_id" ref="crm_helpdesk_improvement.crm_helpdesk_code_tree_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="colors">black:state in ('open', 'waiting');blue:state=='draft';gray:state in ('cancel','done','closed')</attribute>
+                </xpath>
+                <field name="code" position="before">
+                    <field name="color" string="" bg_color="#e9ff57:state=='draft';#87b7ff:state=='pending';#ff6f6f:state=='open';#ff8e43:state=='waiting';#62c35b:state=='done';#a9a9a9:state=='closed';"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

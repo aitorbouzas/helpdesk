@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record model="email.template" id="email_template_helpdesk2team">
+            <field name="model_id" ref="crm_helpdesk.model_crm_helpdesk"/>
+            <field name="name">Email to sales team assigned</field>
+            <field name="subject">[${object.section_id.complete_name}]${object.code}-${object.name}</field>
+            <field name="body_html"><![CDATA[
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    *{
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .content{
+        max-width:600px;
+        margin: 0 auto;
+        padding: 1em;
+        color: #333;
+        border:1px solid #ccc;
+    }
+    </style>
+</head>
+<body class="body">
+    <p>Nuevo ticket ${object.code} asignado al grupo ${object.section_id.complete_name}</p>
+    <div class="content">
+        <p>${object.description}</p>
+        <hr>
+    </div>
+    % for message in object.message_ids:
+        % if message.type in ['email', 'comment']:
+            <p>[${message.date|safe}] Mensaje de ${message.email_from|safe}</p>
+            ${message.body|safe}
+            <hr>
+        % endif
+    % endfor
+    <span class='oe_mail_footer_access'><small>Acerca de <a style='color:inherit' href='${ctx['link_record']}'>Helpdesk [${object.code}] ${object.name}</a></small></span>
+</body>
+</html>
+]]></field>
+            <field name="email_from">${object.email_origin}</field>
+            <field name="reply_to">${object.email_origin}</field>
+            <field name="email_to">${ctx.emails_to}</field>
+        </record>
+
+    </data>
+</openerp>

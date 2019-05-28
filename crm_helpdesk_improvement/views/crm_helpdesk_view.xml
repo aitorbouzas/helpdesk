@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="crm_helpdesk_code_form_view">
+            <field name="name">crm.helpdesk.code.form</field>
+            <field name="model">crm.helpdesk</field>
+            <field name="inherit_id" ref="crm_helpdesk.crm_case_form_view_helpdesk" />
+            <field name="arch" type="xml">
+                <xpath expr="//sheet[@string='Helpdesk Support']/group[1]" position="before">
+                    <h1>
+                        <field name="code" class="oe_inline" readonly="1"/>
+                    </h1>
+                </xpath>
+                <field name="email_from" position="after">
+                    <field name="email_origin" readonly="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="crm_helpdesk_code_tree_view">
+            <field name="name">crm.helpdesk.code.tree</field>
+            <field name="model">crm.helpdesk</field>
+            <field name="inherit_id" ref="crm_helpdesk.crm_case_tree_view_helpdesk" />
+            <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <field name="code" />
+                </field>
+                <field name="partner_id" position="replace">
+                    <field name="name_from" />
+                </field>
+                <field name="date_deadline" position="replace">
+                    <field name="write_date" />
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="crm_case_helpdesk_act333">
+            <field name="name">Helpdesk Requests</field>
+            <field name="res_model">crm.helpdesk</field>
+            <field name="view_mode">tree,calendar,form</field>
+            <field name="domain">['|',('partner_id','=', partner_search),('email_from','ilike', email_search)]</field>
+            <field name="context">{'default_partner_id':active_id}</field>
+            <field name="view_id" ref="crm_helpdesk.crm_case_tree_view_helpdesk"/>
+            <field name="search_view_id" ref="crm_helpdesk.view_crm_case_helpdesk_filter"/>
+        </record>
+
+        <record id="view_crm_case_helpdesk_add_filter" model="ir.ui.view">
+            <field name="name">view.crm.case.helpdesk.add.filter</field>
+            <field name="model">crm.helpdesk</field>
+            <field name="inherit_id" ref="crm_helpdesk.view_crm_case_helpdesk_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                    <field name="name" string="Query" filter_domain="['|',('name','ilike',self),('code','ilike',self)]"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- BlackList and WhiteList Views -->
+
+
+        <record model="ir.ui.view" id="crm_helpdesk_form_view_blacklist">
+            <field name="name">CRM - Helpdesk Blacklist Form</field>
+            <field name="model">crm.helpdesk.blacklist.line</field>
+            <field name="arch" type="xml">
+                <form string="Helpdesk Blacklist Form">
+                    <group colspan="4" col="4">
+                        <field name="email"/>
+                        <field name="comment"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="crm_helpdesk_tree_view_blacklist">
+            <field name="name">CRM - Helpdesk Blacklist Tree</field>
+            <field name="model">crm.helpdesk.blacklist.line</field>
+            <field name="arch" type="xml">
+                <tree string="Helpdesk Blacklist Tree">
+                    <field name="email"/>
+                    <field name="comment"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="crm_case_helpdesk_blacklist">
+            <field name="name">Helpdesk BlackList</field>
+            <field name="res_model">crm.helpdesk.blacklist.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="crm_helpdesk_tree_view_blacklist"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a blacklist item. 
+              </p><p>
+                Helpdesk allow to have an email list in order to disable sending automatic messages.
+              </p>
+            </field>
+        </record>
+
+        <menuitem name="Helpdesk BlackList" id="menu_help_blacklist"
+            groups="base.group_sale_salesman"
+            parent="base.menu_aftersale" action="crm_case_helpdesk_blacklist" sequence="30"/>
+
+
+        <record model="ir.ui.view" id="crm_helpdesk_form_view_whitelist">
+            <field name="name">CRM - Helpdesk WhiteList Form</field>
+            <field name="model">crm.helpdesk.whitelist.line</field>
+            <field name="arch" type="xml">
+                <form string="Helpdesk Whitelist Form">
+                    <group colspan="4" col="4">
+                        <field name="email"/>
+                        <field name="comment"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="crm_helpdesk_tree_view_whitelist">
+            <field name="name">CRM - Helpdesk Whitelist Tree</field>
+            <field name="model">crm.helpdesk.whitelist.line</field>
+            <field name="arch" type="xml">
+                <tree string="Helpdesk Whitelist Tree">
+                    <field name="email"/>
+                    <field name="comment"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="crm_case_helpdesk_whitelist">
+            <field name="name">Helpdesk WhiteList</field>
+            <field name="res_model">crm.helpdesk.whitelist.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="crm_helpdesk_tree_view_whitelist"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a whitelist item. 
+              </p><p>
+                Helpdesk allow to skip for this list the blacklist limitation.
+              </p>
+            </field>
+        </record>
+
+        <menuitem name="Helpdesk WhiteList" id="menu_help_whitelist"
+            groups="base.group_sale_salesman"
+            parent="base.menu_aftersale" action="crm_case_helpdesk_whitelist" sequence="31"/>
+    </data>
+</openerp>

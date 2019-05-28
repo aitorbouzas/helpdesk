@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Kiko Peiro <francisco.peiro@factorlibre.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<templates>
+    <t t-extend="mail.compose_message">
+        <t t-jquery="textarea[class='field_text']" t-operation="replace">
+            <t t-if="!widget.is_log">
+                <textarea class="field_text"></textarea>
+            </t>
+            <t t-if="widget.is_log">
+                <textarea class="field_text" style="background-color: #FFD248"></textarea>
+            </t>
+        </t>
+    </t>
+</templates>

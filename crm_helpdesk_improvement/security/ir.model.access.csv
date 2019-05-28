@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_helpdesk_blacklist_line_all,crm.helpdesk.blacklist.line.all,model_crm_helpdesk_blacklist_line,,1,0,0,0
+access_crm_helpdesk_blacklist_line_user,crm.helpdesk.blacklist.line.user,model_crm_helpdesk_blacklist_line,base.group_user,1,1,1,1
+access_crm_helpdesk_whitelist_line_all,crm.helpdesk.whitelist.line.all,model_crm_helpdesk_whitelist_line,,1,0,0,0
+access_crm_helpdesk_whitelist_line_user,crm.helpdesk.whitelist.line.user,model_crm_helpdesk_whitelist_line,base.group_user,1,1,1,1

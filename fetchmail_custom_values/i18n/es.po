@@ -1,0 +1,116 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* fetchmail_custom_values
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-31 09:40+0000\n"
+"PO-Revision-Date: 2017-03-31 09:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server.custom.lines,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server.custom.lines,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: fetchmail_custom_values
+#: model:ir.model,name:fetchmail_custom_values.model_fetchmail_server_custom_lines
+msgid "Custom values when record created"
+msgstr "Valores personalizados a nuevos registros"
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server.custom.lines,display_name:0
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: fetchmail_custom_values
+#: model:ir.model,name:fetchmail_custom_values.model_mail_thread
+msgid "Email Thread"
+msgstr "Hilo de mensajes"
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server.custom.lines,type:0
+msgid "Evaluation Type"
+msgstr "Tipo de valor"
+
+#. module: fetchmail_custom_values
+#: help:fetchmail.server.custom.lines,value:0
+msgid "Expression containing a value specification. \n"
+"When Formula type is selected, this field may be a Python expression  that can use the same values as for the condition field on the fetchmail_server.\n"
+"If Value type is selected, the value will be used directly without evaluation."
+msgstr "Expression containing a value specification. \n"
+"Cuando se selecciona formula, el valor será calculado en base al código definido (pueden usarse campos como from, to, body, date_message, subject).\n"
+"Si se selecciona un valour entonces será establecido sin evaluación ninguna."
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server.custom.lines,col1:0
+msgid "Field"
+msgstr "Campo"
+
+#. module: fetchmail_custom_values
+#: view:fetchmail.server:fetchmail_custom_values.view_fetchmail_server_custom_values
+msgid "Field Mapping"
+msgstr "Mapeo de campos"
+
+#. module: fetchmail_custom_values
+#: view:fetchmail.server:fetchmail_custom_values.view_fetchmail_server_custom_values
+msgid "Field Mappings"
+msgstr "Mapeo de campos"
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server.custom.lines,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server.custom.lines,__last_update:0
+msgid "Last Modified on"
+msgstr "Modificado en"
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server.custom.lines,write_uid:0
+msgid "Last Updated by"
+msgstr "Modificado por"
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server.custom.lines,write_date:0
+msgid "Last Updated on"
+msgstr "Ultima modificacion en"
+
+#. module: fetchmail_custom_values
+#: model:ir.model,name:fetchmail_custom_values.model_fetchmail_server
+msgid "POP/IMAP Server"
+msgstr "Servidor POP/IMAP"
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server.custom.lines,server_id:0
+msgid "Related Fetchmail Server"
+msgstr "Servidor de correo entrante"
+
+#. module: fetchmail_custom_values
+#: selection:fetchmail.server.custom.lines,type:0
+#: field:fetchmail.server.custom.lines,value:0
+msgid "Value"
+msgstr "Valor"
+
+#. module: fetchmail_custom_values
+#: field:fetchmail.server,fields_lines:0
+msgid "Value Mapping"
+msgstr "Mapeo de valor"
+
+#. module: fetchmail_custom_values
+#: selection:fetchmail.server.custom.lines,type:0
+msgid "expression"
+msgstr "Expression"

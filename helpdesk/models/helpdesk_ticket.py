@@ -1,4 +1,4 @@
-from odoo import models, fields, _
+from odoo import _, api, fields, models
 
 
 class HelpdeskTicket(models.Model):
@@ -6,6 +6,7 @@ class HelpdeskTicket(models.Model):
     _name = 'helpdesk.ticket'
     _order = 'number desc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+  
 
     def _get_default_stage_id(self):
         return self.env['helpdesk.ticket.stage'].search([], limit=1).id
@@ -54,3 +55,14 @@ class HelpdeskTicket(models.Model):
         'ir.attachment', 'res_id',
         domain=[('res_model', '=', 'website.support.ticket')],
         string="Media Attachments")
+
+    
+    @api.multi
+    def _track_template(self, tracking):
+        res = super(HelpdeskTicket, self)._track_template(tracking)
+        test_task = self[0]
+        changes, tracking_value = tracking[test_task.id]
+        if "stage_id" in  changes and test_task.stage_id.mail_template_id:
+            res['stage_id'] = (test_task.stage_id.mail_template_id, {"composition_mode": "mass_mail"})
+
+        return res

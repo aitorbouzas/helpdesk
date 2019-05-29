@@ -6,10 +6,11 @@
     <field name="inherit_id" ref="base.view_partner_form"/>
     <field name="arch" type="xml">
       <div class="oe_button_box" name="button_box">
-        <button name="action_view_helpdesk_tickets" type="object" class="oe_stat_button" icon="fa-life-ring">
-		<!-- <span t-esc="helpdesk_ticket_count_string" widget="statinfo"/> -->
-		<field name="helpdesk_ticket_active_count" /> <span> / </span>
-		<field name="helpdesk_ticket_count" /> 
+	      <button name="action_view_helpdesk_tickets" type="object" class="oe_stat_button" icon="fa-life-ring">
+		<field invisible="True" name="helpdesk_ticket_active_count" /> 
+		<field invisible="True" name="helpdesk_ticket_count" /> 
+		<field name="helpdesk_ticket_count_string" widget="statinfo" />
+			
         </button>
       </div>
     </field>

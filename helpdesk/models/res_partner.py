@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 
 
 class Partner(models.Model):
@@ -18,6 +18,9 @@ class Partner(models.Model):
         compute="_compute_helpdesk_ticket_count", string="Ticket active count"
     )
 
+    helpdesk_ticket_count_string = fields.Char(
+            compute="_compute_helpdesk_ticket_count", string="Tickets"
+    )
     def _compute_helpdesk_ticket_count(self):
         for record in self:
             ticket_ids = self.env["helpdesk.ticket"].search(
@@ -25,7 +28,8 @@ class Partner(models.Model):
             )
             record.helpdesk_ticket_count = len(ticket_ids)
             record.helpdesk_ticket_active_count = len(ticket_ids.filtered(lambda ticket: not ticket.stage_id.closed))
-
+            record.helpdesk_ticket_count_string = f"{record.helpdesk_ticket_active_count}/{record.helpdesk_ticket_count}"
+            
 
     def action_view_helpdesk_tickets(self):
         return {

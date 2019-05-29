@@ -9,6 +9,7 @@ class HelpdeskTicketStage(models.Model):
     name = fields.Char(string='Stage Name', required=True, translate=True)
     description = fields.Text(translate=True)
     sequence = fields.Integer(default=1)
+    active = fields.Boolean(default=True)
     unattended = fields.Boolean(
         string='Unattended')
     closed = fields.Boolean(
@@ -25,3 +26,9 @@ class HelpdeskTicketStage(models.Model):
         help="This stage is folded in the kanban view "
              "when there are no records in that stage "
              "to display.")
+    company_id = fields.Many2one(
+        'res.company',
+        string="Company",
+        default=lambda self: self.env['res.company']._company_default_get(
+            'helpdesk.ticket')
+    )

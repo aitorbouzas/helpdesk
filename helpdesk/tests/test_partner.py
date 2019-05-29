@@ -6,7 +6,7 @@ class TestPartner(SavepointCase):
         super(TestPartner, self).setUp()
         self.partner_obj = self.env["res.partner"]
         self.ticket_obj = self.env["helpdesk.ticket"]
-        self.stage_id_closed = self.env.ref('helpdesk.helpdesk_ticket_stage_done')
+        self.stage_id_closed = self.env.ref("helpdesk.helpdesk_ticket_stage_done")
         self.parent_id = self.partner_obj.create({"name": "Parent 1"})
         self.child_id_1 = self.partner_obj.create({"name": "Child 1"})
         self.child_id_2 = self.partner_obj.create({"name": "Child 2"})
@@ -38,3 +38,6 @@ class TestPartner(SavepointCase):
     def test_ticket_active_count(self):
         self.assertEqual(self.parent_id.helpdesk_ticket_active_count, 3)
 
+    def test_ticket_string(self):
+
+        self.assertEqual(self.parent_id.helpdesk_ticket_count_string, "3 / 4")

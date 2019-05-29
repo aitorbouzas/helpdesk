@@ -1,33 +1,37 @@
-from odoo import models, fields, _
+from odoo import api, fields, models, _
 
 
 class HelpdeskTicket(models.Model):
 
     _name = 'helpdesk.ticket'
+    _rec_name = 'number'
     _order = 'number desc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     def _get_default_stage_id(self):
         return self.env['helpdesk.ticket.stage'].search([], limit=1).id
 
-    number = fields.Char(string='Ticket number', readonly=True)
+    number = fields.Char(string='Ticket number', default="/",
+                         readonly=True)
     name = fields.Char(string='Title', required=True)
     description = fields.Text(required=True)
     user_id = fields.Many2one(
         'res.users',
-        string='Assigned user',
-        default=lambda self: self.env.user)
+        string='Assigned user',)
     stage_id = fields.Many2one(
         'helpdesk.ticket.stage',
-        string='State',
+        string='Stage',
         default=_get_default_stage_id)
     partner_id = fields.Many2one('res.partner')
     partner_name = fields.Char()
     partner_email = fields.Char()
 
-    last_state_update = fields.Datetime()
-    assigned_date = fields.Datetime()
-    closed_date = fields.Datetime()
+    last_stage_update = fields.Datetime(
+        string='Last Stage Update',
+        default=fields.Datetime.now(),
+    )
+    assigned_date = fields.Datetime(string='Assigned Date')
+    closed_date = fields.Datetime(string='Closed Date')
 
     tag_ids = fields.Many2many('helpdesk.ticket.tag')
     company_id = fields.Many2one(
@@ -55,3 +59,28 @@ class HelpdeskTicket(models.Model):
         'ir.attachment', 'res_id',
         domain=[('res_model', '=', 'website.support.ticket')],
         string="Media Attachments")
+
+    @api.model
+    def create(self, vals):
+        if vals.get('number', '/') == '/':
+            vals['number'] = self.env['ir.sequence'].next_by_code(
+                'helpdesk.ticket.sequence'
+            ) or '/'
+        return super().create(vals)
+
+    @api.multi
+    def write(self, vals):
+        for ticket in self:
+            now = fields.Datetime.now()
+            if 'stage_id' in vals.keys():
+                stage_obj = self.env['helpdesk.ticket.stage'].browse(
+                    [int(vals['stage_id'])])
+                vals['last_stage_update'] = now
+                if stage_obj.closed:
+                    vals['closed_date'] = now
+            if 'user_id' in vals.keys():
+                vals['assigned_date'] = now
+        return super(HelpdeskTicket, self).write(vals)
+
+    def assign_to_me(self):
+        self.write({'user_id': self.env.user.id})

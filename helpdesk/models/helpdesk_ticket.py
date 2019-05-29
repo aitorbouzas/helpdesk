@@ -4,6 +4,7 @@ from odoo import api, fields, models, _
 class HelpdeskTicket(models.Model):
 
     _name = 'helpdesk.ticket'
+    _rec_name = 'helpdesk_sequence'
     _order = 'number desc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
@@ -57,6 +58,14 @@ class HelpdeskTicket(models.Model):
         'ir.attachment', 'res_id',
         domain=[('res_model', '=', 'website.support.ticket')],
         string="Media Attachments")
+    helpdesk_sequence = fields.Char("Reservation reference", default="/")
+
+    @api.model
+    def create(self, vals):
+        if vals.get('helpdesk_sequence', '/') == '/':
+            vals['helpdesk_sequence'] = self.env[
+                'ir.sequence'].next_by_code('helpdesk.ticket.sequence') or '/'
+        return super(HelpdeskTicket, self).create(vals)
 
     @api.multi
     def write(self, vals):

@@ -7,7 +7,7 @@
     <field name="arch" type="xml">
       <div class="oe_button_box" name="button_box">
         <button name="action_view_helpdesk_tickets" type="object" class="oe_stat_button" icon="fa-pencil-square-o">
-          <field name="helpdesk_ticket_count" widget="statinfo"/>
+		<field name="helpdesk_ticket_count_string" widget="statinfo"/>
         </button>
       </div>
     </field>

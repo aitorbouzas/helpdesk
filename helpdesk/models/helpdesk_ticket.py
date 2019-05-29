@@ -60,12 +60,9 @@ class HelpdeskTicket(models.Model):
         domain=[('res_model', '=', 'website.support.ticket')],
         string="Media Attachments")
 
-    @api.onchange('user_id')
-    def onchange_assign_user(self):
-        if isinstance(self.id, models.NewId):
-            # Avoid to send email when record is in memory)
-            self.env.ref('helpdesk.assignment_email_template').send_mail(
-                self._origin.id)
+    def send_user_mail(self):
+        self.env.ref('helpdesk.assignment_email_template').\
+            send_mail(self.id)
 
     @api.model
     def create(self, vals):
@@ -73,21 +70,33 @@ class HelpdeskTicket(models.Model):
             vals['number'] = self.env['ir.sequence'].next_by_code(
                 'helpdesk.ticket.sequence'
             ) or '/'
-        return super().create(vals)
+        res = super().create(vals)
+
+        # Check if mail to the user has to be sent
+        if vals.get('user_id') and res:
+            res.send_user_mail()
+        return res
 
     @api.multi
     def write(self, vals):
         for ticket in self:
             now = fields.Datetime.now()
-            if 'stage_id' in vals.keys():
+            if vals.get('stage_id'):
                 stage_obj = self.env['helpdesk.ticket.stage'].browse(
-                    [int(vals['stage_id'])])
+                    [vals['stage_id']])
                 vals['last_stage_update'] = now
                 if stage_obj.closed:
                     vals['closed_date'] = now
-            if 'user_id' in vals.keys():
+            if vals.get('user_id'):
                 vals['assigned_date'] = now
-        return super(HelpdeskTicket, self).write(vals)
+
+        res = super(HelpdeskTicket, self).write(vals)
+
+        # Check if mail to the user has to be sent
+        for ticket in self:
+            if vals.get('user_id'):
+                ticket.send_user_mail()
+        return res
 
     def assign_to_me(self):
         self.write({'user_id': self.env.user.id})

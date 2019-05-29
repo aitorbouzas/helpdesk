@@ -20,7 +20,6 @@
     ],
     'data': [
         'data/helpdesk_data.xml',
-        'data/assignment_email_template.xml',
         'security/helpdesk_security.xml',
         'security/ir.model.access.csv',
         'views/helpdesk_ticket_templates.xml',

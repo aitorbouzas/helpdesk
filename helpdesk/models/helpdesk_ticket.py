@@ -1,4 +1,4 @@
-from odoo import models, fields, _
+from odoo import models, api, fields, _
 
 
 class HelpdeskTicket(models.Model):
@@ -55,3 +55,10 @@ class HelpdeskTicket(models.Model):
         'ir.attachment', 'res_id',
         domain=[('res_model', '=', 'website.support.ticket')],
         string="Media Attachments")
+
+    @api.onchange('user_id')
+    def onchange_assign_user(self):
+        if isinstance(self.id, models.NewId):
+            # Avoid to send email when record is in memory)
+            self.env.ref('helpdesk.assignment_email_template').send_mail(
+                self._origin.id)

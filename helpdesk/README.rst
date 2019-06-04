@@ -59,6 +59,7 @@ Contributors
 * `Domatix <https://www.domatix.com>`_:
 
   * Carlos Martínez
+  * Catalin Airimitoaie
 
 * `Adaptive City <https://www.adaptivecity.com>`_:
 
